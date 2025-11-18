@@ -1,0 +1,28 @@
+Bottleneck @ file:///C:/miniconda3/conda-bld/bottleneck_1761938212172/work
+contourpy @ file:///C:/Users/dev-admin/buildout/croot/contourpy_1761940561677/work
+cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
+et-xmlfile==1.0.1
+fonttools @ file:///C:/Users/dev-admin/buildout/croot/fonttools_1761940971547/work
+kiwisolver @ file:///C:/Users/dev-admin/buildout/croot/kiwisolver_1759959075873/work
+matplotlib==3.10.6
+mkl-service==2.5.2
+mkl_fft @ file:///C:/miniconda3/conda-bld/mkl_fft_1761592920453/work
+mkl_random @ file:///C:/miniconda3/conda-bld/mkl_random_1761593081220/work
+numexpr @ file:///C:/miniconda3/conda-bld/numexpr_1762165726164/work
+numpy @ file:///C:/miniconda3/conda-bld/numpy_and_numpy_base_1762528516533/work/dist/numpy-2.3.4-cp314-cp314-win_amd64.whl#sha256=43bd4e704e50bb4093d40ab2f06efc0a326cf9254b914c3510471aa94cb86373
+openpyxl @ file:///C:/Users/dev-admin/buildout/croot/openpyxl_1759965765142/work
+ordered-set @ file:///C:/Users/dev-admin/buildout/croot/ordered-set_1761955291819/work
+packaging @ file:///C:/miniconda3/conda-bld/packaging_1761049098810/work
+pandas @ file:///C:/miniconda3/conda-bld/pandas_1762332435977/work/dist/pandas-2.3.3-cp314-cp314-win_amd64.whl#sha256=ac6b8c30836d425b7de9199ad67d79b5d4d36663122fd5a70d81bfc894c0da42
+pillow @ file:///C:/Users/dev-admin/buildout/croot/pillow_1762547797675/work
+PyLaTeX @ file:///home/conda/feedstock_root/build_artifacts/pylatex_1697794979665/work
+pyparsing @ file:///C:/Users/dev-admin/buildout/croot/pyparsing_1762552101076/work
+PyQt6==6.9.1
+PyQt6_sip @ file:///C:/Users/dev-admin/buildout/croot/pyqt-split_1759966266962/work/pyqt_sip
+python-dateutil @ file:///C:/Users/dev-admin/buildout/croot/python-dateutil_1759954839763/work
+pytz @ file:///C:/Users/dev-admin/buildout/croot/pytz_1759958332927/work
+setuptools==80.9.0
+sip @ file:///C:/Users/dev-admin/buildout/croot/sip_1761943990339/work
+six @ file:///C:/Users/dev-admin/buildout/croot/six_1759954493303/work
+tornado @ file:///C:/Users/dev-admin/buildout/croot/tornado_1759954992390/work
+tzdata @ file:///croot/python-tzdata_1746123641790/work
