@@ -195,7 +195,7 @@ universidades += list(data_universidades["Universidad:"])
 # Seleccion de universidad
 universidad = 0
 
-for universidad in range(len(universidades)):
+for universidad in [0]:#range(len(universidades)):
 
      t_guardado = "".join([c for c in unicodedata.normalize("NFKD", universidades[universidad]) if not unicodedata.combining(c)]).replace(" ", "_")
      carpeta_salida = os.path.join(ruta_base, f"2025-ReporteCoahuila-{t_guardado}")
