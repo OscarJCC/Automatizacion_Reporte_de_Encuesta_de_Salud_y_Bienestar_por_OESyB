@@ -1,3 +1,4 @@
 # Automatización Reporte de Encuesta de Salud y Bienestar por OESyB
 
-Hay que descomprimir el archivo Logos.zip, para que funcione la ejecucion del script.
+Es necesario descomprimir el archivo Logos.zip antes de ejecutar el script.
+De lo contrario, éste no podrá acceder a los recursos necesarios.
