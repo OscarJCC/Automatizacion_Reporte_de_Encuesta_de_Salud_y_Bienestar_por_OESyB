@@ -169,23 +169,23 @@ data_2 = pd.read_excel(generador_ruta_guardado(ruta_base,"Base de datos - Univer
 
 """
  0.- GENERAL
- 1.- UNIVERSIDAD TECNOLÓGICA DE TORREÓN
- 2.- UNIVERSIDAD TECNOLÓGICA DE COAHUILA
- 3.- INSTITUTO TECNOLÓGICO SUPERIOR DE CIUDAD ACUÑA
- 4.- UNIVERSIDAD TECNOLÓGICA DEL NORTE DE COAHUILA
- 5.- UNIVERSIDAD TECNOLÓGICA DE LA REGIÓN CENTRO DE COAHUILA
- 6.- INSTITUTO TECNOLÓGICO DE ESTUDIOS SUPERIORES DE LA REGIÓN CARBONÍFERA
- 7.- INSTITUTO TECNOLÓGICO SUPERIOR DE MONCLOVA
- 8.- INSTITUTO TECNOLÓGICO SUPERIOR DE SAN PEDRO DE LAS COLONIAS
- 9.- UNIVERSIDAD TECNOLÓGICA DE CIUDAD ACUÑA
-10.- UNIVERSIDAD TECNOLÓGICA DE LA REGIÓN CARBONÍFERA
-11.- UNIVERSIDAD POLITÉCNICA DE MONCLOVA-10
-12.- UNIVERSIDAD POLITÉCNICA DE LA REGION LAGUNA
-13.- UNIVERSIDAD POLITÉCNICA DE RAMOS ARIZPE
-14.- UNIVERSIDAD TECNOLÓGICA DE SALTILLO
-15.- UNIVERSIDAD TECNOLÓGICA DE PARRAS DE LA FUENTE
-16.- UNIVERSIDAD POLITÉCNICA DE PIEDRAS NEGRAS
-17.- INSTITUTO TECNOLÓGICO SUPERIOR DE MÚZQUIZ
+ 1.- UNIVERSIDAD TECNOLÓGICA DE TORREÓN #
+ 2.- UNIVERSIDAD TECNOLÓGICA DE COAHUILA #
+ 3.- INSTITUTO TECNOLÓGICO SUPERIOR DE CIUDAD ACUÑA #
+ 4.- UNIVERSIDAD TECNOLÓGICA DEL NORTE DE COAHUILA #
+ 5.- UNIVERSIDAD TECNOLÓGICA DE LA REGIÓN CENTRO DE COAHUILA #
+ 6.- INSTITUTO TECNOLÓGICO DE ESTUDIOS SUPERIORES DE LA REGIÓN # CARBONÍFERA #
+ 7.- INSTITUTO TECNOLÓGICO SUPERIOR DE MONCLOVA #
+ 8.- INSTITUTO TECNOLÓGICO SUPERIOR DE SAN PEDRO DE LAS COLONIAS #
+ 9.- UNIVERSIDAD TECNOLÓGICA DE CIUDAD ACUÑA #
+10.- UNIVERSIDAD TECNOLÓGICA DE LA REGIÓN CARBONÍFERA #
+11.- UNIVERSIDAD POLITÉCNICA DE MONCLOVA-10 #
+12.- UNIVERSIDAD POLITÉCNICA DE LA REGION LAGUNA #
+13.- UNIVERSIDAD POLITÉCNICA DE RAMOS ARIZPE #
+14.- UNIVERSIDAD TECNOLÓGICA DE SALTILLO #
+15.- UNIVERSIDAD TECNOLÓGICA DE PARRAS DE LA FUENTE #
+16.- UNIVERSIDAD POLITÉCNICA DE PIEDRAS NEGRAS #
+17.- INSTITUTO TECNOLÓGICO SUPERIOR DE MÚZQUIZ #
 """
 
 universidades = ["GENERAL"]
@@ -195,7 +195,7 @@ universidades += list(data_universidades["Universidad:"])
 # Seleccion de universidad
 universidad = 0
 
-for universidad in [0]:#range(len(universidades)):
+for universidad in range(len(universidades)):
 
      t_guardado = "".join([c for c in unicodedata.normalize("NFKD", universidades[universidad]) if not unicodedata.combining(c)]).replace(" ", "_")
      carpeta_salida = os.path.join(ruta_base, f"2025-ReporteCoahuila-{t_guardado}")
@@ -998,41 +998,51 @@ for universidad in [0]:#range(len(universidades)):
 
      if universidad == 0:
           text_port = f"{universidades[universidad]}ES"
+          logo_inst = fr"\vspace{{1.7cm}}"
      else:
           text_port = f"{universidades[universidad]}"
+          logo_inst = fr"""\begin{{figure}}[htbp]%
+               \centering
+               \includegraphics[height=2.5cm]{{Logos/Logo-{text_port}.pdf}}%
+          \end{{figure}}"""
+          #\begin{{figure}}[htbp]%
+          #     \begin{{minipage}}{{0.76\textwidth}}%
+          #          \includegraphics[width=\textwidth]{{LogosIM.pdf}}%
+          #          \label{{EscudoUAdeC}}%
+          #     \end{{minipage}}%
+          #     \begin{{minipage}}{{0.32\textwidth}}%
+          #          \includegraphics[height=1cm]{{LogoOESyB.pdf}}%
+          #          \label{{EscudoOESyB}}%
+          #     \end{{minipage}}%
+          #\end{{figure}}
 
      # ----- FILA DE LOGOS -----
      doc.append(NoEscape(fr"""
 
-     \begin{{figure}}[htbp]%
-          \begin{{minipage}}{{0.76\textwidth}}%
-               \includegraphics[height=2cm]{{LogoUAdeC2025.pdf}}%
-               \label{{EscudoUAdeC}}%
-          \end{{minipage}}%
-          \begin{{minipage}}{{0.32\textwidth}}%
-               \includegraphics[height=2cm]{{LogoOESyB.pdf}}%
-               \label{{EscudoOESyB}}%
-          \end{{minipage}}%
-     \end{{figure}}
-
      \begin{{center}}
-          \vspace{{0.8cm}}
+          \begin{{figure}}[htbp]%
+               \centering
+               \includegraphics[width=\textwidth]{{Logos/LogosIM.pdf}}%
+          \end{{figure}}
+          
+          \vspace{{0.7cm}}
           \LARGE
           UNIVERSIDAD AUTÓNOMA DE COAHUILA
           
-          \vspace{{0.8cm}}
+          \vspace{{0.7cm}}
           \LARGE
           OBSERVATORIO ESTATAL DE SALUD Y BIENESTAR
           
-          \vspace{{1.7cm}}	
+          \vspace{{0.8cm}}	
           \Large
           \textbf{{Resultados 2025}}
 
-          \vspace{{1.7cm}}	
+          \vspace{{0.3cm}}	
           \Large
           {text_port}
-
-          \vspace{{1.3cm}}
+          {logo_inst}
+          
+          \vspace{{0.8cm}}
           \normalsize	
           ELABORÓ \\
           \vspace{{.3cm}}
@@ -1041,13 +1051,12 @@ for universidad in [0]:#range(len(universidades)):
           \textbf{{Ing. Oscar Joel Castro Contreras - Centro de Investigación en Matemáticas Aplicadas, US}}\\
           \textbf{{Ing. Erick Uriel Ruiz Martínez - Centro de Investigación en Matemáticas Aplicadas, US}}
           
-          \vspace{{1.3cm}}
+          \vspace{{0.8cm}}
           \normalsize	
           PRESENTA \\
           \vspace{{.3cm}}
           %\large
-          \textbf{{Dra. Bárbara de los Ángeles Pérez Pedraza - Facultad de Psicología, US\\ Dr. David Pedroza Escobar - Centro de Investigación Biomédica, UT\\ Dra. Dealmy Delgadillo Guzmán - Facultad de Medicina, UT\\ Dra. Diana Berenice Cortes Montelongo - \\ Dra Irais Castillo Maldonado - Facultad de Medicina, UT\\ Dr. José González Tovar - Facultad de Psicología, US\\ Dr. José Roberto Cantú González - \\ Dr. Juan Bernardo Amezcua Núñez - \\ Dra. Karla Patricia Valdés García - Facultad de Psicología, US\\ Dra. María del Carmen Flores Ramírez - Escuela de Ciencias de la Comunidad, UT\\ Dra. Rosa Isabel Garza Sánchez - Facultad de Trabajo Social, US}}
-          
+          \textbf{{Dra. Bárbara de los Ángeles Pérez Pedraza - Facultad de Psicología, US\\ Dra. Adriana Méndez Wong\\ Dr. David Pedroza Escobar - Centro de Investigación Biomédica, UT\\ Dra. Dealmy Delgadillo Guzmán - Facultad de Medicina, UT\\ Dra. Diana Berenice Cortes Montelongo - \\ Dra. Edna Idalia Paulina Navarro Oliva\\ Dra. Griselda de Jesús Granados Udave\\ Dra Irais Castillo Maldonado - Facultad de Medicina, UT\\ Dr. José González Tovar - Facultad de Psicología, US\\ Dr. José Roberto Cantú González\\ Dr. Juan Bernardo Amezcua Núñez - Facultad de Mercadotecnia, US\\ Dra. Karla Patricia Valdés García - Facultad de Psicología, US\\ Dr. Luis Gerardo Vásquez Guajardo\\ Dra. María del Carmen Flores Ramírez - Escuela de Ciencias de la Comunidad, UT\\ Dra. Rosa Isabel Garza Sánchez - Facultad de Trabajo Social, US}}
           
           %\vspace{{.3cm}}
           %\large
@@ -1109,23 +1118,29 @@ for universidad in [0]:#range(len(universidades)):
           
           Finalmente, en lo relativo a la actividad física, ${us_deporte:.2f}\%$ de los estudiantes practica algún deporte al menos 1-2 veces por semana, lo que refleja un nivel moderado de actividad física dentro de la población estudiantil.
      """
+     
+     riesgo_adiccion = (
+     "no se registraron casos en la categoría de riesgo alto, lo que sugiere que no se identificaron individuos con un nivel crítico de riesgo."
+     if us_cs[2] == 0
+     else f"se registró un ${us_cs[2]:.2f}\\%$ de casos en la categoría de riesgo alto, lo que sugiere que existe un grupo que requiere especial atención."
+     )
 
-     caracteristicas_salud_mental = fr"""
-          En relación con la salud mental, se identificó que un total de ${us_salud_menta_bad[1]:.0f}$ estudiantes reportaron presentar {us_salud_menta_bad[0]}, lo que corresponde al ${us_salud_menta_bad[2]:.2f}\%$ de toda la población estudiantil encuestada.
-          
-          En cuanto al consumo de sustancias, el ${us_cons_drogas_porc:.2f}\%$ de estudiantes ($n = {us_cons_drogas}$) indicó consumir alguna droga. Dentro de este grupo, las sustancias más reportadas fueron {", ".join(partes_droga[:-1]) + " y " + partes_droga[-1] if len(partes_droga) > 1 else partes_droga[0]}.
-          
-          Respecto al nivel de riesgo de adicción, el análisis mostró que el ${us_cs[0]:.2f}\%$ de los estudiantes se ubicó en el nivel bajo, mientras que el, mientras que el ${us_cs[1]:.2f}\%$ ue clasificado en el nivel moderado. Finalmente, {"no se registraron casos en la categoría de riesgo alto, lo que sugiere que no se identificaron individuos con un nivel crítico de riesgo." if us_cs[2] == 0 else fr"se registró un ${us_cs[2]:.2f}\%$ de casos en la categoría de riesgo alto, lo que sugiere que existe un grupo que requiere especial atención."}
-          
-          En cuanto al bienestar psicológico, los resultados muestran que ${us_ryff[0]}$ estudiantes (${us_ryff_por[0]:.2f}\%$) se encuentran en el nivel bajo. Por otro lado, ${us_ryff[1]}$ estudiantes (${us_ryff_por[1]:.2f}\%$) se sitúan en un nivel moderado de bienestar. Finalmente, ${us_ryff[2]}$ estudiantes (${us_ryff_por[2]:.2f}\%$) muestran un nivel alto de bienestar psicológico.
-          
-          En cuanto al riesgo suicida, se encontró que 
-          \begin{{center}}
-               {{\color{{red}}\fontsize{{20}}{{36}}\selectfont \textbf{{${us_rs[1]}$ estudiantes (${us_rs_por[1]:.2f}\%$)}}}}
-          \end{{center}}
-          presentan un nivel de riesgo significativo, representando una proporción destacable dentro de la población estudiantil evaluada.
+     caracteristicas_salud_mental = rf"""
+     En relación con la salud mental, se identificó que un total de {us_salud_menta_bad[1]:.0f} estudiantes reportaron presentar {us_salud_menta_bad[0]}, lo que corresponde al {us_salud_menta_bad[2]:.2f}\% de toda la población estudiantil encuestada.
+
+     En cuanto al consumo de sustancias, el {us_cons_drogas_porc:.2f}\% de estudiantes (n = {us_cons_drogas}) indicó consumir alguna droga. Dentro de este grupo, las sustancias más reportadas fueron {", ".join(partes_droga[:-1]) + " y " + partes_droga[-1] if len(partes_droga) > 1 else partes_droga[0]}.
+
+     Respecto al nivel de riesgo de adicción: {riesgo_adiccion}
+
+     En cuanto al bienestar psicológico, los resultados muestran que {us_ryff[0]} estudiantes ({us_ryff_por[0]:.2f}\%) se encuentran en el nivel bajo. Por otro lado, {us_ryff[1]} estudiantes ({us_ryff_por[1]:.2f}\%) se sitúan en un nivel moderado de bienestar. Finalmente, {us_ryff[2]} estudiantes ({us_ryff_por[2]:.2f}\%) muestran un nivel alto de bienestar psicológico.
+
+     En cuanto al riesgo suicida, se encontró que 
+     \begin{{center}}
+          {{\color{{red}}\fontsize{{20}}{{36}}\selectfont \textbf{{{us_rs[1]} estudiantes ({us_rs_por[1]:.2f}\%)}}}}
+     \end{{center}}
+     presentan un nivel de riesgo significativo, representando una proporción destacable dentro de la población estudiantil evaluada.
      """
-
+     
      doc.append(NoEscape(fr"""
      \section{{RESUMEN EJECUTIVO}}\label{{sec:res_ejec}}
           \subsection{{Características socioeconómicas}}
