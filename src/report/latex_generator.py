@@ -192,7 +192,7 @@ def add_executive_summary(doc, stats_demo, stats_health, stats_mental):
         
         En términos de estado civil, se observa que la gran mayoría de los estudiantes son solteros (${stats_demo['mayor_us_estado_civil_porc']:.2f}\%$) y no tienen hijos (${stats_demo['mayor_us_tiene_hijos_porc']:.2f}\%$), lo que refleja que se trata, en su mayoría, de una población joven y en etapa de formación académica.
 
-        Respecto a la situación laboral, el ${stats_demo['us_si_trabaja_porc']:.2f}\%$ e los estudiantes se encuentra trabajando. De este grupo, más de la mitad (${stats_demo['us_trabaja_jornada_comp']:.2f}\%$) realiza una jornada laboral de tiempo completo, mientras que el resto cumple con jornadas parciales o flexibles.
+        Respecto a la situación laboral, el ${stats_demo['us_si_trabaja_porc']:.2f}\%$ de los estudiantes se encuentra trabajando. De este grupo, más de la mitad (${stats_demo['us_trabaja_jornada_comp']:.2f}\%$) realiza una jornada laboral de tiempo completo, mientras que el resto cumple con jornadas parciales o flexibles.
         
         En lo referente al ingreso familiar, la mayoría de los estudiantes (${stats_demo['us_ingreso_familiar_men_20000']:.2f}\%$) proviene de hogares cuyos ingresos mensuales son iguales o inferiores a \$20000 pesos, lo que indica que gran parte de la población estudiantil pertenece a familias con ingresos medios y bajos.
         
@@ -398,7 +398,7 @@ def add_results_section(doc, data_length, universidad_nombre, carpeta_salida,
     # Gráficas de riesgo de suicidio
     with doc.create(Figure(position="htbp")) as plot:
         plot.append(NoEscape(r"""
-            \subsection{Porcentaje de usuarios por riesgo de sucidio}
+            \subsection{Porcentaje de usuarios por riesgo de suicidio}
             \vspace{-0.5em}
         """))
         plot.add_image(
