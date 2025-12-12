@@ -167,6 +167,10 @@ data_1_d = pd.read_csv(generador_ruta_guardado(ruta_base,"Base de datos - Univer
 
 data_2 = pd.read_excel(generador_ruta_guardado(ruta_base,"Base de datos - Universidades publicas 2025 (03102025)","xlsx"),sheet_name="Notas")
 
+data_1_d["Universidad:"] = data_1_d["Universidad:"].replace(
+     {"UNIVERSIDAD POLITÉCNICA DE MONCLOVA-10": "UNIVERSIDAD POLITÉCNICA DE MONCLOVA-FRONTERA"}
+)
+
 """
  0.- GENERAL
  1.- UNIVERSIDAD TECNOLÓGICA DE TORREÓN #
@@ -179,7 +183,7 @@ data_2 = pd.read_excel(generador_ruta_guardado(ruta_base,"Base de datos - Univer
  8.- INSTITUTO TECNOLÓGICO SUPERIOR DE SAN PEDRO DE LAS COLONIAS #
  9.- UNIVERSIDAD TECNOLÓGICA DE CIUDAD ACUÑA #
 10.- UNIVERSIDAD TECNOLÓGICA DE LA REGIÓN CARBONÍFERA #
-11.- UNIVERSIDAD POLITÉCNICA DE MONCLOVA-10 #
+11.- UNIVERSIDAD POLITÉCNICA DE MONCLOVA-FRONTERA #
 12.- UNIVERSIDAD POLITÉCNICA DE LA REGION LAGUNA #
 13.- UNIVERSIDAD POLITÉCNICA DE RAMOS ARIZPE #
 14.- UNIVERSIDAD TECNOLÓGICA DE SALTILLO #
@@ -1104,7 +1108,7 @@ for universidad in range(len(universidades)):
           
           En términos de estado civil, se observa que la gran mayoría de los estudiantes son solteros (${mayor_us_estado_civil_porc:.2f}\%$) y no tienen hijos (${mayor_us_tiene_hijos_porc:.2f}\%$), lo que refleja que se trata, en su mayoría, de una población joven y en etapa de formación académica.
 
-          Respecto a la situación laboral, el ${us_si_trabaja_porc:.2f}\%$ e los estudiantes se encuentra trabajando. De este grupo, más de la mitad (${us_trabaja_jornada_comp:.2f}\%$) realiza una jornada laboral de tiempo completo, mientras que el resto cumple con jornadas parciales o flexibles.
+          Respecto a la situación laboral, el ${us_si_trabaja_porc:.2f}\%$ de los estudiantes se encuentra trabajando. De este grupo, más de la mitad (${us_trabaja_jornada_comp:.2f}\%$) realiza una jornada laboral de tiempo completo, mientras que el resto cumple con jornadas parciales o flexibles.
           
           En lo referente al ingreso familiar, la mayoría de los estudiantes (${us_ingreso_familiar_men_20000:.2f}\%$) proviene de hogares cuyos ingresos mensuales son iguales o inferiores a \$20000 pesos, lo que indica que gran parte de la población estudiantil pertenece a familias con ingresos medios y bajos.
           
@@ -1243,7 +1247,7 @@ for universidad in range(len(universidades)):
           
      with doc.create(Figure(position="htbp")) as plot:
           plot.append(NoEscape(r"""
-               \subsection{Porcentaje de usuarios por riesgo de sucidio}
+               \subsection{Porcentaje de usuarios por riesgo de suicidio}
                \vspace{-0.5em}
           """))
           plot.add_image(generador_ruta_guardado(carpeta_salida,"Poblacion_Riesgo_Suicidio","pdf"), width=NoEscape(r"\linewidth"))
